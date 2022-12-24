@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
+export default function CalendarView({navigation}) {
 
     const [date, setDate] = React.useState("2023-01-01");
 
@@ -69,7 +69,9 @@ export default function App() {
           iconContainerStyle={{ background: "#000" }}
           loadingProps={{ animating: true }}
           loadingStyle={{}}
-          onPress={() => alert("click")}
+          onPress={() =>
+            navigation.navigate('New', {name: 'Jane'})
+          }
           title="+"
           titleProps={{}}
           titleStyle={{ marginHorizontal: 5 }}

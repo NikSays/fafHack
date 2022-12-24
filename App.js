@@ -1,14 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-export default function App() {
+import { StyleSheet, Text, Button} from 'react-native';
+import CalendarView from './Calendar';
+
+
+export default function App () {
+  const Stack = createNativeStackNavigator();
   return (
-    <View style={styles.container}>
-      <Text>sd,mvlkzdfnb;lkxzfdnb/lkfdb.xndfkjbnx.nbnfb.kdznfb.kjzdfkbvz.dkjfnb.znb.kjzdnfb.jdznf</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Calendar"
+          component={CalendarView}
+          options={{title: 'Owlio', header:()=>null}}
+        />
+        <Stack.Screen name="New" component={ProfileScreen}  options={{title: 'New task', headerBackVisible: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};  
+
+const HomeScreen = ({navigation}) => {
+  return (
+    <Button
+      title="Add new task"
+      onPress={() =>
+        navigation.navigate('New', {name: 'Jane'})
+      }
+    />
+  );
+};
+const ProfileScreen = ({navigation, route}) => {
+  return <Text>This is {route.params.name}'s profile</Text>;
+};
+
 
 const styles = StyleSheet.create({
   container: {
