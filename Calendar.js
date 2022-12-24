@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 export default function CalendarView({navigation}) {
 
-    const [date, setDate] = React.useState("2023-01-01");
+    const [date, setDate] = React.useState("2022-12-24");
 
     const [from] = React.useState(moment().subtract(3, 'days').toDate());
     const [till] = React.useState(moment().add(3, 'days').toISOString());

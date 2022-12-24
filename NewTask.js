@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import react,{useState} from 'react';
 import { StyleSheet, Text, View, Button, Platform, TextInput} from 'react-native';
 import DatePicker from '@react-native-community/datetimepicker';
-export default function App() {
+export default function NewTask({navigation}) {
   const[startDate, setDate] = useState(new Date());
   const[startText, setText] = useState('Select Date');
   const[endDate, setDate2] = useState(new Date());
@@ -96,10 +96,16 @@ export default function App() {
       <StatusBar style="auto" />
       <View style={styles.hor}>
         <Button
+              onPress={() =>
+                navigation.navigate('Calendar')
+              }
           title='cancel'>
           Cancel
         </Button>
         <Button
+              onPress={() =>
+                navigation.navigate('Calendar')
+              }
           title='ok'>
           OK
         </Button>

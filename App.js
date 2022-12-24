@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import { StyleSheet, Text, Button} from 'react-native';
 import CalendarView from './Calendar';
+import NewTask from './NewTask';
 
 
 export default function App () {
@@ -17,7 +18,7 @@ export default function App () {
           component={CalendarView}
           options={{title: 'Owlio', header:()=>null}}
         />
-        <Stack.Screen name="New" component={ProfileScreen}  options={{title: 'New task', headerBackVisible: false }}/>
+        <Stack.Screen name="New" component={NewTask}  options={{title: 'New task', headerBackVisible: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
